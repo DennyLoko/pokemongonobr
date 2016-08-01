@@ -3,10 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Já saiu Pokémon Go no Brasil?</title>
+
+<meta property="og:title" content="Já saiu Pokémon Go no Brasil?" />
+<meta property="og:url" content="http://jasaiupokemongonobrasil.xyz/" />
+<meta property="og:description" content="Descubra se o Pokémon Go já está disponível no Brasil!" />
+<meta property="og:locale" content="pt_BR" />
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
-    Não!
+    <div class="center">
+        <h1>Não está disponível ainda... =(</h1>
+        Já estamos há <span id="counter"></span> sem o Pokémon Go no Brasil.
+    </div>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -15,6 +26,20 @@
 
   ga('create', 'UA-81741719-1', 'auto');
   ga('send', 'pageview');
+</script>
+<script src="/static/countdown.min.js"></script>
+<script>
+    countdown.setLabels(
+        '| segundo| minuto| hora| dia||||||',
+        '| segundos| minutos| horas| dias||||||',
+        ' e ',
+        ', ',
+        'agora'
+    );
+
+    var timespan = countdown(new Date(2016, 06, 05), function(ts) {
+      document.getElementById('counter').innerHTML = ts.toHTML("strong");
+  }, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
 </script>
 </body>
 </html>
