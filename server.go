@@ -19,12 +19,18 @@ func serveIndex(w http.ResponseWriter, r *http.Request) {
 	index.Execute(w, nil)
 }
 
+func serveRobots(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("User-agent: *\nAllow: /"))
+}
+
 func main() {
 	templateStr, _ := ioutil.ReadFile("index.html")
 	index, _ = template.New("index").Parse(string(templateStr))
 
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.HandleFunc("/", serveIndex)
 	http.HandleFunc("/favicon.ico", http.NotFound)
-	http.HandleFunc("/robots.txt", http.NotFound)
+	http.HandleFunc("/robots.txt", serveRobots)
 	log.Fatal(http.ListenAndServe(":80", nil))
 }
