@@ -13,8 +13,13 @@
 <meta property="og:description" content="Descubra se o Pokémon Go já está disponível no Brasil!" />
 <meta property="og:locale" content="pt_BR" />
 
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="/static/style.min.css">
+<style>
+body {font-family: 'Roboto', sans-serif;}
+h1 {font-size: 35px;}
+.center {margin: auto;padding: 10px;text-align: center;width: 90%;}
+.status {display: block;font-size: 60px;font-weight: bold;margin-bottom: 15px;}
+.text {font-size: 22px;}
+</style>
 </head>
 
 <body>
@@ -46,5 +51,6 @@
       document.getElementById('counter').innerHTML = ts.toHTML("strong");
   }, countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
 </script>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,900' rel='stylesheet' type='text/css'>
 </body>
 </html>
